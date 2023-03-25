@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native'
 
 const Login = () => {
+
+    const navigation = useNavigation();
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const handleLogin = () => {
+    const handleLogin = (navigation) => {
         // Implement your login logic here
     };
 
@@ -60,8 +64,12 @@ const Login = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.regreq}>
-                <Text style={{color:"#fff"}}>Don't have account?</Text>
-                <Text style={styles.reg}>Register</Text>
+                <Text style={{ color: "#fff" }}>Don't have account?</Text>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('SignUp')}
+                >
+                    <Text style={styles.reg}>Register</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -70,8 +78,8 @@ const Login = () => {
 const styles = StyleSheet.create({
     container: {
         // flex: 1,
-        width:"100%",
-        height:"100%",
+        width: "100%",
+        height: "100%",
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
@@ -81,7 +89,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         marginBottom: 30,
-        color:"#fff"
+        color: "#fff"
     },
     input: {
         width: '100%',
@@ -92,7 +100,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         paddingLeft: 20,
         fontSize: 18,
-        backgroundColor:"#fff"
+        backgroundColor: "#fff"
     },
     passwordContainer: {
         width: '100%',
@@ -102,7 +110,7 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
         borderRadius: 5,
         marginBottom: 20,
-        backgroundColor:"#fff"
+        backgroundColor: "#fff"
     },
     passwordInput: {
         flex: 1,
@@ -121,7 +129,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 20,
-        marginTop:20
+        marginTop: 20
     },
     buttonText: {
         color: '#fff',
@@ -141,7 +149,7 @@ const styles = StyleSheet.create({
     separatorText: {
         marginHorizontal: 10,
         fontSize: 16,
-        color:"#fff"
+        color: "#fff"
     },
     socialContainer: {
         flexDirection: 'row',
@@ -159,12 +167,14 @@ const styles = StyleSheet.create({
         display: "flex",
         marginTop: 20,
         flexDirection: "row",
-        
+
     },
     reg: {
         fontWeight: "bold",
-        fontSize:15,
-        color:"#fff"
+        fontSize: 15,
+        color: "#fff",
+        textDecorationLine: 'underline',
+        marginLeft: 5
     }
 });
 

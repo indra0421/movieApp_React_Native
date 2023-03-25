@@ -1,0 +1,220 @@
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native'
+
+const SignUp = () => {
+
+    const navigation = useNavigation();
+
+
+    const [name, setName] = useState('');
+    const [mobile, setMobile] = useState('');
+    const [dob, setDob] = useState('');
+    const [email, setEmail] = useState('');
+    const [agree, setAgree] = useState(false);
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const handleSignUp = () => {
+        // Handle signup logic here
+    };
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.title}>Sign up</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Name"
+                value={name}
+                onChangeText={(text) => setName(text)}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Mobile"
+                value={mobile}
+                onChangeText={(text) => setMobile(text)}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Date of Birth"
+                value={dob}
+                onChangeText={(text) => setDob(text)}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Email"
+                value={email}
+                onChangeText={(text) => setEmail(text)}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Password"
+                value={password}
+                onChangeText={(text) => setPassword(text)}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChangeText={(text) => setConfirmPassword(text)}
+            />
+            <TouchableOpacity
+                style={styles.checkbox}
+                onPress={() => setAgree(!agree)}
+            >
+                <View style={agree ? styles.checkedBox : styles.box}>
+                    {agree && <AntDesign name="check" size={16} color="#fff" />}
+                </View>
+                <Text style={styles.label}>I agree to the Terms and Conditions</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={handleSignUp}
+                disabled={!name || !mobile || !dob || !email || !agree}
+            >
+                <Text style={styles.buttonText}>Sign up</Text>
+            </TouchableOpacity>
+            <View style={styles.socialMedia}>
+                <Text style={styles.socialMediaText}>or Sign up with</Text>
+                <View style={styles.socialMediaIcons}>
+                    <TouchableOpacity style={styles.icon}>
+                        <FontAwesome name="facebook" size={24} color="#3b5998" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.icon}>
+                        <Ionicons name="logo-google" size={24} color="#db4437" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.icon}>
+                        <FontAwesome name="twitter" size={24} color="#1da1f2" />
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <View style={styles.bottom}>
+                <Text style={styles.bottomText}>Already have an account?</Text>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Login')}
+                >
+                    <Text style={styles.bottomLink}>Login</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+
+        backgroundColor: '#1d1e32',
+        marginTop: 30
+
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginBottom: 25,
+        color: "#fff"
+    },
+    input: {
+        width: '80%',
+        height: 50,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 5,
+        paddingLeft: 10,
+        marginBottom: 16,
+
+        backgroundColor: "#fff"
+    },
+    checkbox: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
+    box: {
+        width: 20,
+        height: 20,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 3,
+        marginRight: 10,
+    },
+    checkedBox: {
+        width: 20,
+        height: 20,
+        backgroundColor: '#5fcf80',
+        borderWidth: 1,
+        borderColor: '#5fcf80',
+        borderRadius: 3,
+        marginRight: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    label: {
+        fontSize: 16,
+        color: "#fff"
+    },
+    button: {
+        width: '80%',
+        height: 50,
+        backgroundColor: '#2196f3',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 5,
+        marginTop: 16,
+        color: "#fff"
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    socialMedia: {
+        marginTop: 32,
+        alignItems: 'center',
+    },
+    socialMediaText: {
+        fontSize: 16,
+        marginBottom: 16,
+        color: "#fff"
+
+    },
+    socialMediaIcons: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '50%',
+    },
+    icon: {
+        width: 50,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 25,
+        marginHorizontal: 10,
+    },
+    bottom: {
+        display: "flex",
+        flexDirection: "row",
+        marginTop: 20
+    },
+    bottomText: {
+        fontSize: 16,
+        marginRight: 8,
+        color: "#fff"
+    },
+    bottomLink: {
+        fontSize: 16,
+        color: '#2196f3',
+        fontWeight: 'bold', color: "#fff",
+        textDecorationLine: "underline"
+    },
+});
+
+
+export default SignUp;
