@@ -11,8 +11,12 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const handleLogin = (navigation) => {
-        // Implement your login logic here
+    const handleLogin = () => {
+        if (username != '' && password != '') {
+            navigation.navigate("Home", { username })
+        } else alert('please enter correct details')
+
+
     };
 
     const togglePasswordVisibility = () => {

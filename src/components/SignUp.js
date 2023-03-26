@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native'
+import { KeyboardAvoidingView, Platform } from 'react-native';
 
 const SignUp = () => {
 
@@ -10,18 +11,37 @@ const SignUp = () => {
 
     const [name, setName] = useState('');
     const [mobile, setMobile] = useState('');
-    const [dob, setDob] = useState('');
+    const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [agree, setAgree] = useState(false);
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleSignUp = () => {
-        // Handle signup logic here
+        if (password === confirmPassword) {
+
+            console.log(name, mobile, dob, email, agree);
+
+        } else {
+            alert('passwords are not matching');
+        }
     };
 
+    const validateEmail = (email) => {
+        const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        return emailPattern.test(email);
+    }
+
+    const validatePhone = (phone) => {
+        const phonePattern = /^\d{10}$/;
+        return phonePattern.test(phone);
+    }
     return (
-        <View style={styles.container}>
+
+        <KeyboardAvoidingView
+            style={styles.container}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        >
             <Text style={styles.title}>Sign up</Text>
             <TextInput
                 style={styles.input}
@@ -34,18 +54,34 @@ const SignUp = () => {
                 placeholder="Mobile"
                 value={mobile}
                 onChangeText={(text) => setMobile(text)}
+                keyboardType="phone-pad"
+                autoCapitalize="none"
+                autoCorrect={false}
+                onBlur={() => {
+                    if (!validatePhone(mobile)) {
+                        alert('Please enter a valid 10-digit phone number');
+                    }
+                }}
             />
             <TextInput
                 style={styles.input}
-                placeholder="Date of Birth"
-                value={dob}
-                onChangeText={(text) => setDob(text)}
+                placeholder="Username"
+                value={userName}
+                onChangeText={(text) => setUserName(text)}
             />
             <TextInput
                 style={styles.input}
                 placeholder="Email"
                 value={email}
                 onChangeText={(text) => setEmail(text)}
+                autoCapitalize="none"
+                keyboardType='email-address'
+                onBlur={() => {
+                    if (!validateEmail(email)) {
+                        alert('Please enter a valid email address');
+                    }
+                }}
+
             />
             <TextInput
                 style={styles.input}
@@ -97,7 +133,7 @@ const SignUp = () => {
                     <Text style={styles.bottomLink}>Login</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 };
 
@@ -109,7 +145,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
 
         backgroundColor: '#1d1e32',
-        marginTop: 30
+
 
     },
     title: {
