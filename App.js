@@ -5,6 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/components/Login';
 import SignUp from './src/components/SignUp';
 import Home from './src/components/Home';
+import Api from './src/fetchapi/Api';
+import MoviePage from './src/components/MoviePage';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -12,8 +14,9 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false, statusBarColor: "#1d1e32" }} />
+        <Stack.Screen name="MoviePage" component={MoviePage} />
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false, statusBarColor: "#1d1e32" }} />
-        <Stack.Screen name="Home">
+        <Stack.Screen name="Home" options={{ headerShown: false, statusBarColor: "#1c1c27" }}>
           {(props) => <Home {...props} name="indranil" />}
         </Stack.Screen>
       </Stack.Navigator>
