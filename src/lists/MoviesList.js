@@ -19,12 +19,20 @@ const MoviesList = ({ route }) => {
 
     }, [])
 
+    const allMovies = ({ item }) => {
+        return (
+            <View>
+                <Text>{item.original_title}</Text>
+            </View>
+        )
+    }
+
     return (
-        <View>
-            <Text>{name}</Text>
+        <View style={styles.mainContainer}>
+            {/* <Text>{name}</Text> */}
             <FlatList
                 data={lists}
-                renderItem={({ item }) => <Text>{item.original_title}</Text>}
+                renderItem={allMovies}
                 keyExtractor={(item, index) => index.toString()}
             />
         </View>
