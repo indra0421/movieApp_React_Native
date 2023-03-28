@@ -7,6 +7,8 @@ import SignUp from './src/components/SignUp';
 import Home from './src/components/Home';
 import Api from './src/fetchapi/Api';
 import MoviePage from './src/components/MoviePage';
+import categoryApiFetch from './src/fetchapi/categoryApiFetch';
+import MoviesList from './src/lists/MoviesList';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -15,6 +17,9 @@ const App = () => {
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false, statusBarColor: "#1d1e32" }} />
         <Stack.Screen name="MoviePage" component={MoviePage} />
+        <Stack.Screen name="categoryApiFetch" component={categoryApiFetch} />
+        <Stack.Screen name="MoviesList" component={MoviesList} />
+
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false, statusBarColor: "#1d1e32" }} />
         <Stack.Screen name="Home" options={{ headerShown: false, statusBarColor: "#1c1c27" }}>
           {(props) => <Home {...props} name="indranil" />}

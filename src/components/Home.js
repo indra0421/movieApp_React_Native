@@ -9,6 +9,7 @@ import Tvshows from '../movies/Tvshows';
 import Series from '../movies/Series';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
+import Category from './Category';
 
 
 const Home = ({ route }) => {
@@ -74,26 +75,7 @@ const Home = ({ route }) => {
             {/* category container  */}
             <View style={styles.categoryContainer}>
                 <Text style={styles.title}>Categories</Text>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.categoryItems}>
-                    <View style={styles.categoryItem}>
-                        <Text style={[styles.categoryTitle, { color: "#f27706" }]}>Action</Text>
-                    </View>
-                    <View style={styles.categoryItem}>
-                        <Text style={styles.categoryTitle}>Comedy</Text>
-                    </View>
-                    <View style={styles.categoryItem}>
-                        <Text style={styles.categoryTitle}>Drama</Text>
-                    </View>
-                    <View style={styles.categoryItem}>
-                        <Text style={styles.categoryTitle}>Horror</Text>
-                    </View>
-                    <View style={styles.categoryItem}>
-                        <Text style={styles.categoryTitle}>Romance</Text>
-                    </View>
-                    <View style={styles.categoryItem}>
-                        <Text style={styles.categoryTitle}>Sci-Fi</Text>
-                    </View>
-                </ScrollView>
+                <Category />
             </View>
 
             {/* latest movie list  */}
@@ -182,26 +164,6 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         color: "#e2e1e7"
     },
-    categoryItems: {
-        marginLeft: 15
-    },
-    categoryItem: {
-        backgroundColor: '#34353e',
-        borderRadius: 20,
-        // padding: 10,
-        marginRight: 8,
-        height: 35,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 100
-    },
-    categoryTitle: {
-        fontSize: 16,
-        // fontWeight: 'bold',
-        color: "#c1c0c7",
-
-    },
-
 
     imageContainer: {
         position: "relative"
