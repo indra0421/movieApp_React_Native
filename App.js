@@ -5,9 +5,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/components/Login';
 import SignUp from './src/components/SignUp';
 import Home from './src/components/Home';
-import Api from './src/fetchapi/Api';
+
 import MoviePage from './src/components/MoviePage';
-import categoryApiFetch from './src/fetchapi/categoryApiFetch';
+
 import MoviesList from './src/lists/MoviesList';
 
 const App = () => {
@@ -16,8 +16,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false, statusBarColor: "#1d1e32" }} />
-        <Stack.Screen name="MoviePage" component={MoviePage} />
-        <Stack.Screen name="categoryApiFetch" component={categoryApiFetch} />
+        <Stack.Screen name="MoviePage" component={MoviePage} options={{ headerShown: false, statusBarColor: "#1d1e32" }} />
+
         <Stack.Screen name="MoviesList" component={MoviesList} />
 
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false, statusBarColor: "#1d1e32" }} />

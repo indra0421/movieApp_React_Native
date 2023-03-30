@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-nativ
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native'
 import { KeyboardAvoidingView, Platform } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const SignUp = () => {
 
@@ -109,7 +110,11 @@ const SignUp = () => {
                 onPress={handleSignUp}
                 disabled={!name || !mobile || !dob || !email || !agree}
             >
-                <Text style={styles.buttonText}>Sign up</Text>
+                <LinearGradient colors={['#17cbd8', '#107e85']}
+                    style={styles.playButton}>
+                    <Text style={styles.buttonText}>Sign Up</Text>
+                </LinearGradient>
+
             </TouchableOpacity>
             <View style={styles.socialMedia}>
                 <Text style={styles.socialMediaText}>or Sign up with</Text>
@@ -193,19 +198,18 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#fff"
     },
-    button: {
-        width: '80%',
+    playButton: {
+        width: 310,
         height: 50,
-        backgroundColor: '#2196f3',
+        borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 5,
-        marginTop: 16,
-        color: "#fff"
+        marginBottom: 20,
+        marginTop: 20
     },
     buttonText: {
         color: '#fff',
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
     },
     socialMedia: {

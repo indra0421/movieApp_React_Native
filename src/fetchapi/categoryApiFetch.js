@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 
 
-const categoryApiFetch = () => {
+const CategoryApiFetch = () => {
     const categoryApi = "https://api.themoviedb.org/3/genre/movie/list?api_key=30f76e3ddb7adb8e8c0dfc85fb5578e9&language=en-US"
     const [category, setCategory] = useState()
 
@@ -25,6 +25,6 @@ const categoryApiFetch = () => {
     )
 }
 
-export default categoryApiFetch
+export default CategoryApiFetch
 
 const styles = StyleSheet.create({})

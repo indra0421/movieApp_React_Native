@@ -35,7 +35,15 @@ const Home = ({ route }) => {
                     } else {
                         const title = data.Title;
                         const image = data.Poster;
-                        navigation.navigate("MoviePage", { title, image });
+                        const year = data.Year;
+                        const duration = data.Runtime;
+                        const genre = data.Genre;
+                        const plot = data.Plot;
+                        const rating = data.imdbRating;
+                        const writer = data.Writer;
+                        const actors = data.Actors;
+                        const directcor = data.Director;
+                        navigation.navigate("MoviePage", { title, image, year, duration, genre, plot, rating, writer, actors, directcor });
                     }
 
                 })
@@ -54,13 +62,22 @@ const Home = ({ route }) => {
                     <Text style={styles.userText}>Lets relax and Watch a movie !</Text>
                 </View>
                 <View style={styles.topContainerRight}>
-                    <Image source={img} style={styles.userImage} />
+                    <TouchableOpacity>
+                        <Image source={img} style={styles.userImage} />
+                    </TouchableOpacity>
                 </View>
             </View>
 
             {/* search bar */}
             <View style={styles.searchContainer}>
-                <TouchableOpacity onPress={searchEvent}>
+                <TouchableOpacity
+                    onPress={searchEvent}
+                    onKeyPress={(event) => {
+                        if (event.key === 'Enter') {
+                            searchEvent();
+                        }
+                    }}
+                >
                     <Feather name="search" size={24} color="#92a6b8" style={styles.icon} />
                 </TouchableOpacity>
                 <TextInput

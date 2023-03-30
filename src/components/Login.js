@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native'
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Login = () => {
 
@@ -48,9 +49,14 @@ const Login = () => {
                     />
                 </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Login</Text>
+
+            <TouchableOpacity onPress={handleLogin}>
+                <LinearGradient colors={['#17cbd8', '#107e85']}
+                    style={styles.playButton}>
+                    <Text style={styles.buttonText}>Login</Text>
+                </LinearGradient>
             </TouchableOpacity>
+
             <View style={styles.separator}>
                 <View style={styles.line} />
                 <Text style={styles.separatorText}>or login with</Text>
@@ -125,10 +131,9 @@ const styles = StyleSheet.create({
     toggleButton: {
         paddingRight: 20,
     },
-    button: {
-        width: '100%',
+    playButton: {
+        width: 310,
         height: 50,
-        backgroundColor: '#e72626',
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
