@@ -7,6 +7,7 @@ import LatestMovies from '../movies/LatestMovies';
 import TrendingMovies from '../movies/TrendingMovies';
 import Tvshows from '../movies/Tvshows';
 import Series from '../movies/Series';
+import TopRated from '../movies/TopRated';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import Category from './Category';
@@ -102,9 +103,9 @@ const Home = ({ route }) => {
             <ScrollView style={styles.scrollMovies}>
                 <LatestMovies />
                 <TrendingMovies />
+                <TopRated />
                 <Series />
                 <Tvshows />
-
 
             </ScrollView>
 

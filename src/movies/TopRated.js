@@ -1,13 +1,11 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import MovieCard from '../cards/MovieCard'
-// import { TvshowsApi } from '../Apis/TvshowsApi'
 
-const Tvshows = () => {
-
+const TopRated = () => {
     const [lists, setLists] = useState();
     const apiKey = "30f76e3ddb7adb8e8c0dfc85fb5578e9&page=1"
-    const apiUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`
+    const apiUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=${apiKey}`
 
     useEffect(() => {
         fetch(apiUrl)
@@ -22,7 +20,7 @@ const Tvshows = () => {
     return (
         <View style={styles.LatestMovieContainer}>
             <View>
-                <Text style={styles.latestMovie}>TV Shows</Text>
+                <Text style={styles.latestMovie}>Trending</Text>
             </View>
             <FlatList
                 horizontal
@@ -36,6 +34,7 @@ const Tvshows = () => {
     )
 }
 
+
 const styles = StyleSheet.create({
     LatestMovieContainer: {
         width: "100%",
@@ -48,4 +47,5 @@ const styles = StyleSheet.create({
     },
 
 })
-export default Tvshows
+
+export default TopRated

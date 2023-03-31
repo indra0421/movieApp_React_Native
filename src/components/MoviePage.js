@@ -14,9 +14,9 @@ const MoviePage = ({ route }) => {
     const navigation = useNavigation();
     const { title, year, duration, genre, plot, rating, writer, actors, directcor } = route.params;
     const str = genre.toString();
-    console.log(str)
+    // console.log(str)
     var arr = str.split(',');
-    console.log(title)
+    // console.log(title)
     const posterGetUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${title}`
 
     fetch(posterGetUrl)

@@ -1,9 +1,21 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import MovieCard from '../cards/MovieCard'
-import { SeriesApi } from '../Apis/SeriesApi'
 
 const Series = () => {
+    const [lists, setLists] = useState();
+    const apiKey = "30f76e3ddb7adb8e8c0dfc85fb5578e9&page=1"
+    const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`
+
+    useEffect(() => {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(response => {
+                setLists(response.results)
+
+            })
+            .catch(err => console.error(err));
+    })
 
     return (
         <View style={styles.LatestMovieContainer}>
@@ -12,10 +24,10 @@ const Series = () => {
             </View>
             <FlatList
                 horizontal
-                data={SeriesApi}
+                data={lists}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={MovieCard}
-                style={{ marginLeft: 7 }}
+                style={{ marginLeft: 15 }}
 
             />
         </View>
