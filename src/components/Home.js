@@ -18,9 +18,12 @@ const Home = ({ route }) => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const { username } = route.params;
+
+
     const img = {
         uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
     }
+
 
     const apiKey = "34098ceb";
     const searchEvent = () => {
@@ -43,7 +46,7 @@ const Home = ({ route }) => {
                         const writer = data.Writer;
                         const actors = data.Actors;
                         const directcor = data.Director;
-                        navigation.navigate("MoviePage", { title, image, year, duration, genre, plot, rating, writer, actors, directcor });
+                        navigation.navigate("MoviePage", { title, year, duration, genre, plot, rating, writer, actors, directcor });
                     }
 
                 })
@@ -106,7 +109,7 @@ const Home = ({ route }) => {
             </ScrollView>
 
             {/* bottom menu  */}
-            {/* <Menu /> */}
+            <Menu />
 
 
         </View>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
@@ -8,19 +8,34 @@ import { useNavigation } from '@react-navigation/native'
 
 
 const MoviePage = ({ route }) => {
+    const apiKey = "30f76e3ddb7adb8e8c0dfc85fb5578e9"
+    const [imagePath, setImagePath] = useState()
 
     const navigation = useNavigation();
-    const { title, image, year, duration, genre, plot, rating, writer, actors, directcor } = route.params;
+    const { title, year, duration, genre, plot, rating, writer, actors, directcor } = route.params;
     const str = genre.toString();
     console.log(str)
     var arr = str.split(',');
-    console.log(arr)
+    console.log(title)
+    const posterGetUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${title}`
 
+    fetch(posterGetUrl)
+        .then(response => response.json())
+        .then(response => {
+            setImagePath(response.results[0].poster_path)
+
+        })
+        .catch(err => console.error(err));
+
+
+
+    const baseUrl = 'https://image.tmdb.org/t/p/original';
+    var url = `${baseUrl}/${imagePath}`;
 
     return (
         <ScrollView style={styles.mainContainer}>
             <View style={styles.imageContainer}>
-                <Image source={{ uri: image }} style={styles.image} />
+                <Image source={{ uri: url }} style={styles.image} />
 
                 <LinearGradient
                     colors={['rgba(0,0,0,0)', '#1c1c27']}

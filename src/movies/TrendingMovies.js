@@ -21,7 +21,6 @@ const TrendingMovies = () => {
     )
 }
 
-export default TrendingMovies
 
 const styles = StyleSheet.create({
     LatestMovieContainer: {
@@ -35,3 +34,5 @@ const styles = StyleSheet.create({
     },
 
 })
+
+export default TrendingMovies

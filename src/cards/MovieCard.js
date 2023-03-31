@@ -1,14 +1,19 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
 const MovieCard = ({ item }) => {
+
     return (
+
         <View style={styles.movieCard}>
             <View style={styles.imageContainer}>
-                <Image
-                    style={styles.cardImage}
-                    source={{ uri: item.imgsrc }}
-                />
+                <TouchableOpacity
+                >
+                    <Image
+                        style={styles.cardImage}
+                        source={{ uri: item.imgsrc }}
+                    />
+                </TouchableOpacity>
 
             </View>
             <View style={styles.movieDetails}>
@@ -16,6 +21,7 @@ const MovieCard = ({ item }) => {
             </View>
 
         </View>
+
     )
 }
 
@@ -38,6 +44,9 @@ const styles = StyleSheet.create({
         marginBottom: 5
 
     },
+    movieCard: {
+        // marginRight: 5
+    }
 
 })
 
