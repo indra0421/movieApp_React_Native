@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import MovieCard from '../cards/MovieCard'
+import { API_KEY2 } from '@env'
+
 
 const TrendingMovies = () => {
     const [lists, setLists] = useState();
-    const apiKey = "30f76e3ddb7adb8e8c0dfc85fb5578e9&page=1"
-    const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`
+    const apiUrl = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY2}`
 
     useEffect(() => {
         fetch(apiUrl)

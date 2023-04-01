@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react'
 import MovieCard from '../cards/MovieCard'
 // import { SeriesApi } from '../Apis/SeriesApi'
 // import { TvshowsApi } from '../Apis/TvshowsApi'
+import { API_KEY2 } from '@env'
 
 const LatestMovies = () => {
 
     const [lists, setLists] = useState();
-    const apiKey = "30f76e3ddb7adb8e8c0dfc85fb5578e9&page=1"
-    const apiUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`
+    const apiUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY2}`
 
     useEffect(() => {
         fetch(apiUrl)
@@ -19,7 +19,7 @@ const LatestMovies = () => {
 
             })
             .catch(err => console.error(err));
-    })
+    }, [])
 
     return (
         <View style={styles.LatestMovieContainer}>

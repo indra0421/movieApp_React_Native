@@ -10,13 +10,12 @@ const MovieCard = ({ item }) => {
         <TouchableOpacity>
             <View style={styles.movieCard}>
                 <View style={styles.imageContainer}>
-                    <TouchableOpacity
-                    >
-                        <Image
-                            style={styles.cardImage}
-                            source={{ uri: url }}
-                        />
-                    </TouchableOpacity>
+
+                    <Image
+                        style={styles.cardImage}
+                        source={{ uri: url }}
+                    />
+
 
                 </View>
                 <View style={styles.movieDetails}>

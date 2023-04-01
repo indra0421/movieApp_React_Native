@@ -5,10 +5,10 @@ import { LinearGradient } from "expo-linear-gradient";
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native'
+import { API_KEY2 } from '@env'
 
 
 const MoviePage = ({ route }) => {
-    const apiKey = "30f76e3ddb7adb8e8c0dfc85fb5578e9"
     const [imagePath, setImagePath] = useState()
 
     const navigation = useNavigation();
@@ -17,7 +17,7 @@ const MoviePage = ({ route }) => {
     // console.log(str)
     var arr = str.split(',');
     // console.log(title)
-    const posterGetUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${title}`
+    const posterGetUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY2}&query=${title}`
 
     fetch(posterGetUrl)
         .then(response => response.json())

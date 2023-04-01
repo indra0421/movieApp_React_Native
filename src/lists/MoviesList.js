@@ -2,15 +2,15 @@ import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'rea
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
+import { API_KEY2, API_KEY1 } from '@env'
 
 const MoviesList = ({ route }) => {
     const [lists, setLists] = useState()
     const { movieID, name } = route.params;
     const navigation = useNavigation();
     const id = movieID;
-    const apiKey = "30f76e3ddb7adb8e8c0dfc85fb5578e9"
     const baseUrl = 'https://image.tmdb.org/t/p/original';
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}`
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY2}&with_genres=${id}`
 
 
     useEffect(() => {
@@ -30,8 +30,7 @@ const MoviesList = ({ route }) => {
         var movieTitle = item.original_title;
 
         const imgClick = () => {
-            const apiKey2 = "34098ceb";
-            const Imageurl = `http://www.omdbapi.com/?apikey=${apiKey2}&t=${movieTitle}`;
+            const Imageurl = `http://www.omdbapi.com/?apikey=${API_KEY1}&t=${movieTitle}`;
 
             try {
                 fetch(Imageurl)

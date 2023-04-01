@@ -11,6 +11,7 @@ import TopRated from '../movies/TopRated';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import Category from './Category';
+import { API_KEY1 } from '@env'
 
 
 const Home = ({ route }) => {
@@ -26,7 +27,7 @@ const Home = ({ route }) => {
     }
 
 
-    const apiKey = "34098ceb";
+    const apiKey = API_KEY1;
     const searchEvent = () => {
         const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchQuery}`;
 
