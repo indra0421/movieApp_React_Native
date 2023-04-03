@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "movieProject",
+    "name": "movieApp",
     "slug": "movieProject",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.indra0421.movieProject"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fec0e7b4-8190-4b79-aadd-67d747c101dd"
+      }
     }
   }
 }

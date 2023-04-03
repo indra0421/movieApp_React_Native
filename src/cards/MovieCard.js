@@ -1,13 +1,15 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
+
 const MovieCard = ({ item }) => {
     const baseUrl = 'https://image.tmdb.org/t/p/original';
     var url = `${baseUrl}/${item.poster_path}`;
     var movieTitle = item.original_title;
     return (
 
-        <TouchableOpacity>
+        <TouchableOpacity
+        >
             <View style={styles.movieCard}>
                 <View style={styles.imageContainer}>
 
