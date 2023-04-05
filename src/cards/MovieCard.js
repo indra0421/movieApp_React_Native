@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 
 const MovieCard = ({ item }) => {
@@ -9,6 +10,7 @@ const MovieCard = ({ item }) => {
     return (
 
         <TouchableOpacity
+
         >
             <View style={styles.movieCard}>
                 <View style={styles.imageContainer}>

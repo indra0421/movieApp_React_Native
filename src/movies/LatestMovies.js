@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react'
 import MovieCard from '../cards/MovieCard'
 // import { SeriesApi } from '../Apis/SeriesApi'
 // import { TvshowsApi } from '../Apis/TvshowsApi'
-import { API_KEY2 } from '@env'
+// import { API_KEY2 } from '@env'
 
 const LatestMovies = () => {
+    const API_KEY2 = "30f76e3ddb7adb8e8c0dfc85fb5578e9"
 
     const [lists, setLists] = useState();
     const apiUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY2}`

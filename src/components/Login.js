@@ -14,7 +14,7 @@ const Login = () => {
 
     const handleLogin = () => {
         if (username != '' && password != '') {
-            navigation.navigate("Home", { username })
+            navigation.navigate("Home", { username: username })
         } else alert('please enter correct details')
 
 

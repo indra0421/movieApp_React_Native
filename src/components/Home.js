@@ -11,25 +11,23 @@ import TopRated from '../movies/TopRated';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import Category from './Category';
-import { API_KEY1 } from '@env'
+// import { API_KEY1 } from '@env'
+import Profile from './Profile';
 
 
 const Home = ({ route }) => {
     const navigation = useNavigation();
-
     const [searchQuery, setSearchQuery] = useState('');
-
-    const { username } = route.params;
-
-
+    // const { movieTitle } = route.params;
+    const username = "indra";
     const img = {
         uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
     }
 
-
-    const apiKey = API_KEY1;
+    const apiKey = "34098ceb";
+    const searchMovieName = searchQuery;
     const searchEvent = () => {
-        const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchQuery}`;
+        const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchMovieName}`;
 
         try {
             fetch(url)
@@ -67,7 +65,7 @@ const Home = ({ route }) => {
                     <Text style={styles.userText}>Lets relax and Watch a movie !</Text>
                 </View>
                 <View style={styles.topContainerRight}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
                         <Image source={img} style={styles.userImage} />
                     </TouchableOpacity>
                 </View>
@@ -109,9 +107,6 @@ const Home = ({ route }) => {
                 <Tvshows />
 
             </ScrollView>
-
-            {/* bottom menu  */}
-            <Menu />
 
 
         </View>

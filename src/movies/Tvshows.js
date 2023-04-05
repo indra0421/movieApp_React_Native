@@ -2,11 +2,12 @@ import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import MovieCard from '../cards/MovieCard'
 // import { TvshowsApi } from '../Apis/TvshowsApi'
-import { API_KEY2 } from '@env'
+// import { API_KEY2 } from '@env'
 
 const Tvshows = () => {
 
     const [lists, setLists] = useState();
+    const API_KEY2 = "30f76e3ddb7adb8e8c0dfc85fb5578e9"
     const apiUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY2}`
 
     useEffect(() => {
