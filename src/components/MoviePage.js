@@ -5,7 +5,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native'
-// import { API_KEY2 } from '@env'
 
 
 const MoviePage = ({ route }) => {
@@ -27,7 +26,6 @@ const MoviePage = ({ route }) => {
 
         })
         .catch(err => console.error(err));
-
 
 
     const baseUrl = 'https://image.tmdb.org/t/p/original';

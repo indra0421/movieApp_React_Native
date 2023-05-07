@@ -55,8 +55,6 @@ const Home = ({ route }) => {
 
         }
     }
-
-
     return (
         <View style={styles.mainContainer}>
             <View style={styles.topContainer}>

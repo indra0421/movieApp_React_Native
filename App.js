@@ -5,7 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Favorities from './src/components/Favorities';
 import Settings from './src/components/Settings';
-import Tv from './src/components/Tv';
+// import Tv from './src/components/Tv';
+import SearchMovieCard from './src/cards/SearchMovieCard';
 
 import LoginSignupNav from './src/NavItems/LoginSignupNav';
 import HomeNavItems from './src/NavItems/HomeNavItems';
@@ -52,7 +53,7 @@ export default function App() {
         }} />
 
 
-        <Tab.Screen name="Tv" component={Tv}
+        <Tab.Screen name="Tv" component={SearchMovieCard}
           options={{ headerStyle: { backgroundColor: "#1c1c27" }, headerTintColor: '#fff' }}
         />
         <Tab.Screen name="Favorities" component={Favorities} options={{ headerStyle: { backgroundColor: "#1c1c27" }, headerTintColor: '#fff' }} />
