@@ -13,8 +13,7 @@ import { useNavigation } from '@react-navigation/native'
 import Category from './Category';
 // import { API_KEY1 } from '@env'
 import Profile from './Profile';
-
-
+// import Search from './Search'; 
 const Home = ({ route }) => {
     const navigation = useNavigation();
     const [searchQuery, setSearchQuery] = useState('');
