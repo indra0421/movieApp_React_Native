@@ -6,7 +6,7 @@ import MovieCard from '../cards/MovieCard'
 
 const TopRated = () => {
     const [lists, setLists] = useState();
-    const API_KEY2 = "30f76e3ddb7adb8e8c0dfc85fb5578e9"
+    const API_KEY2 = ""
     const apiUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY2}`
 
     useEffect(() => {
